@@ -78,7 +78,7 @@ void loop()
   // Request 6 bytes of data
   Wire.requestFrom(Addr, 6);
   
-  // Read 4 bytes of data
+  // Read 6 bytes of data
   // c0Data lsb, c0Data msb, c1Data lsb, c1Data msb, proximity lsb, proximity msb
   if(Wire.available() == 6)
   {
