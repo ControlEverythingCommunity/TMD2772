@@ -114,7 +114,6 @@ void loop()
   Serial.println(" lux");
   Serial.print("Proximity of the device : ");
   Serial.print(proximity);
+  Serial.print("\n");
   delay(1000);
 }
-
-
