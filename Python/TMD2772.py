@@ -16,15 +16,15 @@ bus = smbus.SMBus(1)
 bus.write_byte_data(0x39, 0x00 | 0x80, 0x0F)
 # TMD2772 address, 0x39(57)
 # Select ALS time register 0x01(01), with command register, 0x80(128)
-#		0xFF(255)	Time - 2.73ms
+#		0xFF(255)	ATime - 2.73ms
 bus.write_byte_data(0x39, 0x01 | 0x80, 0xFF)
 # TMD2772 address, 0x39(57)
 # Select proximity ADC time register 0x02(02), with command register, 0x80(128)
-#		0xFF(255)	Time - 2.73ms
+#		0xFF(255)	PTime - 2.73ms
 bus.write_byte_data(0x39, 0x02 | 0x80, 0xFF)
 # TMD2772 address, 0x39(57)
 # Select wait time register 0x03(03), with command register, 0x80(128)
-#		0xFF(255)	Time - 2.73ms
+#		0xFF(255)	WTime - 2.73ms
 bus.write_byte_data(0x39, 0x03 | 0x80, 0xFF)
 # TMD2772 address, 0x39(57)
 # Select control register 0x0F(15), with command register, 0x80(128)
