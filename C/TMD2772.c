@@ -58,7 +58,7 @@ void main()
 	char data[6] = {0};
 	if(read(file, data, 6) != 6)
 	{
-		printf("Erorr : Input/output Erorr \n");
+		printf("Error : Input/Output error \n");
 	}
 	else
 	{
@@ -81,7 +81,7 @@ void main()
 		}
 
 		// Output data to screen
-		printf("Ambient Light luminance : %.2f lux \n", luminance);
+		printf("Ambient Light Luminance : %.2f lux \n", luminance);
 		printf("Proximity of the Device : %.2f \n", proximity);
 	}
 }
