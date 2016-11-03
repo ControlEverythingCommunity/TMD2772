@@ -17,10 +17,10 @@ namespace TMD2772
 	// App that reads data over I2C from an TMD2772 Proximity and Light Sensor
 	public sealed partial class MainPage : Page
 	{
-		private const byte PROXALS_I2C_ADDR = 0x39;			// I2C address of the TMD2772
+		private const byte PROXALS_I2C_ADDR = 0x39;		// I2C address of the TMD2772
 		private const byte PROXALS_REG_ENABLE = 0x80;		// Enables state and interrupt register
-		private const byte PROXALS_REG_ATIME = 0x81;        // RGBC integration time register
-        private const byte PROXALS_REG_PTIME = 0x82;			// PROXALSimity ADC time register
+		private const byte PROXALS_REG_ATIME = 0x81;        	// RGBC integration time register
+        	private const byte PROXALS_REG_PTIME = 0x82;		// PROXALSimity ADC time register
 		private const byte PROXALS_REG_WTIME = 0x83;		// Wait time register
 		private const byte PROXALS_REG_CONTROL = 0x8F;		// Control register
 		private const byte PROXALS_REG_C0DATA = 0x94;		// ALS Ch0 ADC low data register
@@ -43,7 +43,7 @@ namespace TMD2772
 
 		private async void InitI2CProxALS()
 		{
-			string aqs = I2cDevice.GetDeviceSelector();				// Get a selector string that will return all I2C controllers on the system
+			string aqs = I2cDevice.GetDeviceSelector();		// Get a selector string that will return all I2C controllers on the system
 			var dis = await DeviceInformation.FindAllAsync(aqs);	// Find the I2C bus controller device with our selector string
 			if (dis.Count == 0)
 			{
@@ -59,8 +59,8 @@ namespace TMD2772
 				Text_Status.Text = string.Format(
 					"Slave address {0} on I2C Controller {1} is currently in use by " +
 					"another application. Please ensure that no other applications are using I2C.",
-					settings.SlaveAddress,
-					dis[0].Id);
+				settings.SlaveAddress,
+				dis[0].Id);
 				return;
 			}
 
@@ -135,7 +135,7 @@ namespace TMD2772
 		private ProxALS ReadI2CProxALS()
 		{
 			byte[] RegAddrBuf = new byte[] { PROXALS_REG_C0DATA };	// Read data from the register address
-			byte[] ReadBuf = new byte[6];							// We read 6 bytes sequentially to get all 3 two-byte data registers in one read
+			byte[] ReadBuf = new byte[6];				// We read 6 bytes sequentially to get all 3 two-byte data registers in one read
 
 			/*
 				Read from the Proximity and Light Sensor 
@@ -177,4 +177,3 @@ namespace TMD2772
 		}
 	}
 }
-
