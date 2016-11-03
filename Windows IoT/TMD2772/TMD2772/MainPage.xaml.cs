@@ -20,7 +20,7 @@ namespace TMD2772
 		private const byte PROXALS_I2C_ADDR = 0x39;		// I2C address of the TMD2772
 		private const byte PROXALS_REG_ENABLE = 0x80;		// Enables state and interrupt register
 		private const byte PROXALS_REG_ATIME = 0x81;        	// RGBC integration time register
-        	private const byte PROXALS_REG_PTIME = 0x82;		// PROXALSimity ADC time register
+        	private const byte PROXALS_REG_PTIME = 0x82;		// Proximity ADC time register
 		private const byte PROXALS_REG_WTIME = 0x83;		// Wait time register
 		private const byte PROXALS_REG_CONTROL = 0x8F;		// Control register
 		private const byte PROXALS_REG_C0DATA = 0x94;		// ALS Ch0 ADC low data register
@@ -70,9 +70,9 @@ namespace TMD2772
 				The first byte is the register address we want to write to.
 				The second byte is the contents that we want to write to the register.
 			*/
-			byte[] WriteBuf_Enable = new byte[] { PROXALS_REG_ENABLE, 0x0F };		// 0x03 sets Power ON and Wait, Proximity and ALS features are enabled
-			byte[] WriteBuf_Atime = new byte[] { PROXALS_REG_ATIME, 0xFF };			// 0x00 sets ATIME : 2.73 ms, 1 cycle, 1024 max count
-			byte[] WriteBuf_Ptime = new byte[] { PROXALS_REG_PTIME, 0xFF };			// 0x00 sets PTIME : 2.73 ms, 1 cycle, 1023 max count
+			byte[] WriteBuf_Enable = new byte[] { PROXALS_REG_ENABLE, 0x0F };		// 0x0F sets Power ON and Wait, Proximity and ALS features are enabled
+			byte[] WriteBuf_Atime = new byte[] { PROXALS_REG_ATIME, 0xFF };			// 0xFF sets ATIME : 2.73 ms, 1 cycle, 1024 max count
+			byte[] WriteBuf_Ptime = new byte[] { PROXALS_REG_PTIME, 0xFF };			// 0xFF sets PTIME : 2.73 ms, 1 cycle, 1023 max count
 			byte[] WriteBuf_Wtime = new byte[] { PROXALS_REG_WTIME, 0xFF };			// 0xFF sets WTIME : 2.73 ms (WLONG = 0), 1 wait time
 			byte[] WriteBuf_Control = new byte[] { PROXALS_REG_CONTROL, 0x20 };		// 0x20 sets 120 mA LED strength, Proximity uses CH1 diode, Proximity gain 1x, ALS gain 1x
 
